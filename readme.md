@@ -14,7 +14,7 @@
 ## Using App
 
 ### setup
-Replace the following IP address by the IP address of the blockchain backend:
+Replace the following IP address by the IP address of the [blockchain backend][1]:
 
 1. Line 37 in `./container/RatingPage.js`;  
 2. Line 46, 64, 84 in `./container/carlist.js`;  
@@ -30,3 +30,5 @@ $ cd ./app
 $ npm install
 ```
 Open `./ios/Final.xcodeproj` by Xcode then build it; then you can play this app on the simulator.
+
+[1]:[https://github.com/DCChen1998/Automotive-contract/]
