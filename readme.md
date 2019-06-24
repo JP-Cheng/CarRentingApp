@@ -32,4 +32,4 @@ $ npm install
 Open `./ios/Final.xcodeproj` by Xcode then build it; then you can play this app on the simulator.
 
 
-[1]:[https://github.com/DCChen1998/Automotive-contract/]
+[1]:https://github.com/DCChen1998/Automotive-contract/
