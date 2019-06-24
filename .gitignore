@@ -59,4 +59,4 @@ buck-out/
 *.mov
 
 # blockchain
-./backend
+./backend/*

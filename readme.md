@@ -14,7 +14,7 @@
 ## Using App
 
 ### setup
-Replace the following IP address by the IP address of the [blockchain backend][1]:
+Replace the following IP address by the IP address of the blockchain backend:
 
 1. Line 37 in `./container/RatingPage.js`;  
 2. Line 46, 64, 84 in `./container/carlist.js`;  
