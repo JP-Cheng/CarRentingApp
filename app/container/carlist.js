@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { Appbar } from 'react-native-paper'
 import StarRate from './StarRate'
+// import { Icon } from 'react-native-elements'
 // import { stat } from 'fs';
 // import { generateKeyPair } from 'crypto';
 
@@ -36,10 +37,14 @@ export default class Carlist extends Component {
     })
   }
 
-  async componentDidMount() {
+  async componentWillMount() {
     await this.getParam();
     // Alert.alert(this.state.account);
+    this.setBalance();
+    this.setCar()
+  }
 
+  setBalance = () => {
     fetch("http://localhost:5000/POST/user/balance", {
       method: 'POST',
       headers: {
@@ -55,7 +60,9 @@ export default class Carlist extends Component {
         this.setState({ balance: res.balance });
       })
       .done();
+  }
 
+  setCar = () => {
     fetch('http://localhost:5000/GET/cars')
       .then((response) => response.json())
       .then((responseJson) => {
@@ -76,6 +83,7 @@ export default class Carlist extends Component {
   }
 
 
+
   renting = (index) => {
     fetch("http://localhost:5000/PUT/car/rent", {
       method: 'PUT',
@@ -88,9 +96,8 @@ export default class Carlist extends Component {
         "account": this.state.account
       })
     })
-      // .then(Alert.alert(this.state.dataSource[index]))
       .then(
-        this.props.navigation.navigate('Rent',
+        this.props.navigation.navigate('Renting',
           {
             user: this.state.user,
             account: this.state.account,
@@ -100,11 +107,6 @@ export default class Carlist extends Component {
   }
 
   render() {
-    const ratingObj = {
-      ratings: 3,
-      views: 34000
-    }
-
     if (this.state.isLoading) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
@@ -112,7 +114,6 @@ export default class Carlist extends Component {
         </View>
       )
     }
-
     return (
       <View style={styles.container}>
         <Appbar.Header
@@ -122,6 +123,15 @@ export default class Carlist extends Component {
           <Appbar.Content
             title={"You have now $" + this.state.balance + " left."}
           />
+          {/* <Icon name="cached"
+            type="material"
+            size={20}
+            color="#0671c6"
+            onPress={() => {
+              this.setBalance();
+              this.setCar();
+            }}
+          /> */}
         </Appbar.Header>
         <FlatList
           data={this.state.dataSource}
@@ -139,7 +149,8 @@ export default class Carlist extends Component {
               }>
               <View style={styles.buttonSytle}>
                 <Text style={styles.carname}>{item.Name}</Text>
-                <StarRate ratingObj={item.Rate} />
+                <StarRate rating={item.Rate} />
+                <Text>({item.Rate.toPrecision(3)})</Text>
               </View>
 
             </TouchableOpacity>

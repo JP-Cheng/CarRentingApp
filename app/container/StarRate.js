@@ -6,7 +6,7 @@ import {
 	Image,
 	Text
 } from 'react-native';
-import { Icon } from 'react-native-elements'
+import { Icon, Rating } from 'react-native-elements'
 
 // type Props = {
 // 	ratingObj: {
@@ -17,29 +17,17 @@ import { Icon } from 'react-native-elements'
 
 export default class StarRating extends Component<Props> {
 	render() {
-		// Recieve the ratings object from the props
-		let rate = this.props.ratingObj;
-
-		// This array will contain our star tags. We will include this
-		// array between the view tag.
-		let stars = [];
-		// Loop 5 times
-		for (var i = 1; i <= 5; i++) {
-			// set the path to filled stars
-			let path = "star_half";
-			// If ratings is lower, set the path to unfilled stars
-			if (i > rate) {
-				path = "star";
-			}
-			stars.push(<Icon name={"star"} type={"material"} size={16} color={"#0671c6"} />);
-			// stars.push((<Image style={styles.image} source={path} />));
-		}
 
 		return (
 			<View style={styles.container}>
-				{stars}
+				{/* {stars} */}
 				{/* <Text style={styles.text}>({ratingObj.views})</Text> */}
-
+				<Rating
+					imageSize={16}
+					readonly
+					startingValue={this.props.rating}
+					ratingColor={"#0671c6"}
+				/>
 			</View>
 		);
 	}

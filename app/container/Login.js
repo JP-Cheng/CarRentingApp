@@ -39,7 +39,7 @@ export default class Login extends Component {
   }
 
   navigate = () => {
-    this.props.navigation.navigate('LoggedIn',
+    this.props.navigation.navigate('Carlist',
       {
         user: this.state.userName,
         account: this.state.curAccount
@@ -72,19 +72,30 @@ export default class Login extends Component {
   }
 
   signUp = () => {
-    fetch("http://localhost:5000/POST/user", {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "name": this.state.userName.toLowerCase()
+    fetch("http://localhost:5000/GET/users")
+      .then(res => res.json())
+      .then(res => {
+        // /*
+        for (let i = 0; i < res.length; i++) {
+          if (this.state.userName === res[i].name) {
+            Alert.alert('Username already exists')
+          }
+          else if (i === res.length - 1)
+            fetch("http://localhost:5000/POST/user", {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                "name": this.state.userName.toLowerCase()
+              })
+            })
+              .then(
+                Alert.alert('Sign Up Success')
+              );
+        }
       })
-    })
-      .then(
-        this.setState({ isLoggedIn: true })
-      );
   }
 
 

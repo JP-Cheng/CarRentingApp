@@ -49,47 +49,55 @@ const styles = StyleSheet.create({
     },
 });
 
-
 export default class Renting extends Component {
-    // socket = new WebSocket('ws://172.20.10.9:6000');
+
     constructor(props) {
         super(props);
 
         this.state = {
-            user: "owner",
-            account: "0x4304805b01a5F394595A09Cca064E32aA15c59A9",
+            user: "",
+            account: "",
             carID: 1,
-            carName: ["haha"]
+            carName: []
         }
     }
 
-    // update = async () => {
-    //     const { navigation } = this.props;
-    //     const userName = navigation.getParam("user", "reserved");
-    //     const account = navigation.getParam("account", null);
-    //     const car = navigation.getParam("car", null);
-    //     await this.setState(state => {
-    //         state.user = userName;
-    //         state.account = account;
-    //         state.carID = car.ID;
-    //         state.carName.push(car.Name);
-    //         return state;
-    //     });
-    //     Alert.alert(this.state.carName);
-    // }
+    async componentWillMount() {
+        const { navigation } = this.props;
+        const userName = navigation.getParam("user", "reserved");
+        const account = navigation.getParam("account", null);
+        const car = navigation.getParam("car", null);
+        // Alert.alert("alive");
+        await this.setState(state => {
+            state.user = userName;
+            state.account = account;
+            state.carID = car.ID;
+            state.carName.push(car.Name);
+            return state;
+        });
+        // Alert.alert(this.state.carName);
+    }
 
     confirm = () => {
-        // if (this.socket.readyState == this.socket.OPEN) {
+        // let socket = new WebSocket('ws://172.20.10.9:6000');
+        // // socket.onopen(e => {
+
+        // // })
+        // if (socket.readyState == socket.OPEN) {
         //     // let account = this.state.account;
         //     // let toSend = { index, account }
-        //     this.socket.send(this.state.account);
+        //     socket.send(state.account);
         // }
-        // let token = await this.socket.onmessage(e => {
+        // let token = await socket.onmessage(e => {
         //     return e.data;
         // });
         let token = "yes";
         if (token === "yes")
-            this.props.navigation.navigate('Driving');
+            this.props.navigation.navigate('Driving', {
+                carID: this.state.carID,
+                account: this.state.account
+            });//,
+        // { socket });
 
     }
 

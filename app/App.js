@@ -7,18 +7,50 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert, ScrollView } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import HomeScreen from './container/HomeScreen'
 import Login from './container/Login'
+import Carlist from './container/carlist'
+import Renting from './container/renting'
+import Driving from './container/Driving'
+import RatingPage from './container/RatingPage'
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: Login
+    screen: Login,
+    navigationOptions: () => ({
+      title: null,
+      headerBackTitle: `Logout`
+    })
   },
-  LoggedIn: {
-    screen: HomeScreen
+  Carlist: {
+    screen: Carlist,
+    navigationOptions: () => ({
+      title: `Choose a Car to Rent`,
+      headerBackTitle: `Car List`
+    })
+  },
+  Renting: {
+    screen: Renting,
+    navigationOptions: () => ({
+      title: `Rented Car`,
+      headerBackTitle: null
+    }),
+  },
+  Driving: {
+    screen: Driving,
+    navigationOptions: () => ({
+      title: `Driving`,
+      headerBackTitle: null,
+      headerLeft: null
+    })
+  },
+  RatingPage: {
+    screen: RatingPage, navigationOptions: () => ({
+      title: "How do you feel?",
+      headerBackTitle: null,
+      headerLeft: null
+    })
   }
 });
 
