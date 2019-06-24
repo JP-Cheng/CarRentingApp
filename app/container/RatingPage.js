@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import { AirbnbRating } from 'react-native-elements';
-import { thisExpression } from '@babel/types';
 
 export default class RatingPage extends Component {
 
@@ -66,12 +65,7 @@ export default class RatingPage extends Component {
           defaultRating={3}
           size={20}
         />
-        {/* <Rating
-          showRating
-          onFinishRating={this.ratingCompleted}
-          imageSize={60}
-          style={{ paddingVertical: 10 }}
-        /> */}
+
       </View>
     );
   }

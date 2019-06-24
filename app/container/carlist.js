@@ -12,8 +12,6 @@ import {
 import { Appbar } from 'react-native-paper'
 import StarRate from './StarRate'
 import { Icon } from 'react-native-elements'
-// import { stat } from 'fs';
-// import { generateKeyPair } from 'crypto';
 
 export default class Carlist extends Component {
   constructor(props) {
@@ -81,8 +79,6 @@ export default class Carlist extends Component {
         console.error(error);
       });
   }
-
-
 
   renting = (index) => {
     fetch("http://172.20.10.2:5000/PUT/car/rent", {

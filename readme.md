@@ -1,5 +1,6 @@
 # A Car Renting App on Blockchain
 
+## About This Project
 ### 一句話描述這個專題
 建構在區塊鏈的租車系統。
 
@@ -10,5 +11,22 @@
 這是個使用React Native建構的iPhone app，目前並沒有開發android的版本。  
 所有的介面都非常的直觀，可以查看車輛評價、租車、遙控並查看錢包餘額。
 
+## Using App
+
+### setup
+Replace the following IP address by the IP address of the blockchain backend:
+
+1. Line 37 in `./container/RatingPage.js`;  
+2. Line 46, 64, 84 in `./container/carlist.js`;  
+3. Line 50, 75, 84 in `./container/Login.js`;  
+
+Replace the following IP address by that of the Respberry-Pi automotive car: 
+
+1. Line 34 in `./container/Keyboard.js`;
+
 ### usage
-open `./ios/Final.xcodeproj` by XCode then build it.
+```
+$ cd ./app  
+$ npm install
+```
+Open `./ios/Final.xcodeproj` by Xcode then build it; then you can play this app on the simulator.

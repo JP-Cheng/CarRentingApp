@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import Keyboard from './Keyboard';
-// import { stat } from 'fs';
 
 const styles = StyleSheet.create({
   container: {
