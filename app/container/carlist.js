@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Appbar } from 'react-native-paper'
 import StarRate from './StarRate'
-// import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 // import { stat } from 'fs';
 // import { generateKeyPair } from 'crypto';
 
@@ -45,7 +45,7 @@ export default class Carlist extends Component {
   }
 
   setBalance = () => {
-    fetch("http://localhost:5000/POST/user/balance", {
+    fetch("http://172.20.10.2:5000/POST/user/balance", {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -63,7 +63,7 @@ export default class Carlist extends Component {
   }
 
   setCar = () => {
-    fetch('http://localhost:5000/GET/cars')
+    fetch('http://172.20.10.2:5000/GET/cars')
       .then((response) => response.json())
       .then((responseJson) => {
         // let list = []
@@ -85,7 +85,7 @@ export default class Carlist extends Component {
 
 
   renting = (index) => {
-    fetch("http://localhost:5000/PUT/car/rent", {
+    fetch("http://172.20.10.2:5000/PUT/car/rent", {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -123,7 +123,7 @@ export default class Carlist extends Component {
           <Appbar.Content
             title={"You have now $" + this.state.balance + " left."}
           />
-          {/* <Icon name="cached"
+          <Icon name="cached"
             type="material"
             size={20}
             color="#0671c6"
@@ -131,7 +131,7 @@ export default class Carlist extends Component {
               this.setBalance();
               this.setCar();
             }}
-          /> */}
+          />
         </Appbar.Header>
         <FlatList
           data={this.state.dataSource}

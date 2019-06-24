@@ -47,7 +47,7 @@ export default class Login extends Component {
   }
 
   onLoginPress = () => {
-    fetch("http://localhost:5000/GET/users")
+    fetch("http://172.20.10.2:5000/GET/users")
       .then(res => res.json())
       .then(res => {
         // /*
@@ -72,7 +72,7 @@ export default class Login extends Component {
   }
 
   signUp = () => {
-    fetch("http://localhost:5000/GET/users")
+    fetch("http://172.20.10.2:5000/GET/users")
       .then(res => res.json())
       .then(res => {
         // /*
@@ -81,7 +81,7 @@ export default class Login extends Component {
             Alert.alert('Username already exists')
           }
           else if (i === res.length - 1)
-            fetch("http://localhost:5000/POST/user", {
+            fetch("http://172.20.10.2:5000/POST/user", {
               method: 'POST',
               headers: {
                 Accept: 'application/json',

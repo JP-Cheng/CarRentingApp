@@ -35,7 +35,7 @@ export default class RatingPage extends Component {
       },
       {
         text: 'YES', onPress: () => {
-          fetch('http://localhost:5000/PUT/car/return', {
+          fetch('http://172.20.10.2:5000/PUT/car/return', {
             method: 'PUT',
             headers: {
               Accept: 'application/json',

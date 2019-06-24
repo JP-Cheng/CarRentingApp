@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
 });
 
-// var socket = new WebSocket('ws://172.20.10.9:6000');
+// var socket = new WebSocket('ws://172.20.10.13:6000');
 
 
 // export default class Keyboard extends React.Component {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 //     super(props);
 //     this.state = { socket: socket }
 //     // this.socket = socket.bind(this);
-//     //socket = new WebSocket('ws://172.20.10.9:6000');
+//     //socket = new WebSocket('ws://172.20.10.13:6000');
 //     // socket.onopen = () => {
 //     //   socket.send('Hello');
 //     // }
@@ -99,7 +99,7 @@ export default class Keyboard extends React.Component {
   constructor(props) {
     super(props);
     // this.socket = socket.bind(this);
-    socket = new WebSocket('ws://172.20.10.9:6000');
+    socket = new WebSocket('ws://172.20.10.13:6000');
     // socket.onopen = () => {
     //   socket.send('Hello');
     // }

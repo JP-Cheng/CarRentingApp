@@ -34,7 +34,8 @@ const AppNavigator = createStackNavigator({
     screen: Renting,
     navigationOptions: () => ({
       title: `Rented Car`,
-      headerBackTitle: null
+      headerBackTitle: null,
+      headerLeft: null
     }),
   },
   Driving: {
