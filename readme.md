@@ -5,7 +5,7 @@
 建構在區塊鏈的租車系統。
 
 ### 這包含了什麼
-其實這是小組專題，包含了app、區塊鏈後台與遙控車等三大部分，而這個repo只有app的部分；至於其他兩部分則是由其他兩個小組完成。
+其實這是小組專題，包含了app、[區塊鏈後台][1]與遙控車等三大部分，而這個repo只有app的部分；至於其他兩部分則是由其他兩個小組完成。
 
 ### app?
 這是個使用React Native建構的iPhone app，目前並沒有開發android的版本。  
@@ -30,5 +30,6 @@ $ cd ./app
 $ npm install
 ```
 Open `./ios/Final.xcodeproj` by Xcode then build it; then you can play this app on the simulator.
+
 
 [1]:[https://github.com/DCChen1998/Automotive-contract/]
