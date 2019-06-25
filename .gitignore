@@ -62,6 +62,6 @@ buck-out/
 ./backend/*
 
 # for ceiba hending in
-./app/handin.txt
-./app/poster.txt
-./app/APP.pptx
+app/handin.txt
+app/poster.txt
+app/APP.pptx
